@@ -1,0 +1,98 @@
+<template>
+  <require from="bootstrap/dist/css/bootstrap.css"></require> 
+  
+  <h3>Applicant Data</h3>
+
+  <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item">
+          <a class="nav-link ${isVisible ? 'active' : ''}" href="#" click.trigger="DisplayTab('List')">Applicant List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link ${isEdit ? 'active' : ''}" href="#" click.trigger="DisplayTab('Edit')">Manage Applicant</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body" show.bind="isVisible">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover" border="1">
+          <thead>
+            <tr class="bg-primary"> 
+              <th scope="col">Name</th>
+              <th scope="col">FamilyName</th>
+              <th scope="col">Address</th>  
+              <th scope="col">CountryOfOrigin</th>
+              <th scope="col">EMailAddress</th>
+              <th scope="col">Age</th>         
+              <th scope="col">Hired</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr repeat.for="emp of applicant">
+              <td scope="row">${emp.name}</td>
+              <td>${emp.familyName}</td>     
+              <td>${emp.address}</td>
+              <td>${emp.countryOfOrigin}</td>
+              <td>${emp.eMailAddress}</td> 
+              <td>${emp.age}</td>
+              <td>${emp.hired}</td> 
+              <td>
+                <input type="hidden" value.bind="emp.id">
+                <a class="btn btn-primary m-1" click.trigger="getApplicantById(emp.id)">Edit</a>
+                <a class="btn btn-danger m-1" click.trigger="deleteApplicant(emp.id)">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ml:500px">
+      <a href="#" class="btn btn-primary" click.trigger="DisplayTab('Edit')">Add Applicant</a>
+      </div>
+    </div>
+  </div>
+
+<form id="form1">
+  <div class="card text-center mx-auto" style="width: 25rem; align-items: center;" show.bind="isEdit">
+    <div class="card-header">
+              <label for.bind="message">${message}</label>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><label class="mr-5">Id</label>
+        <input type="text" readonly class="ml-5" value.bind="applicantData.id">
+      </li>
+      <li class="list-group-item"><label class="mr-3">Name</label>
+        <input type="text" class="ml-5" value.bind="applicantData.name" required>
+      </li>
+      <li class="list-group-item"><label class="mr-3">FamilyName</label>
+        <input type="text" class="ml-0" value.bind="applicantData.familyName" required>
+      </li>
+      <li class="list-group-item"><label class="mr-2">Address</label>
+        <input type="text" class="ml-5" value.bind="applicantData.address" required>
+      </li>
+      <li class="list-group-item"><label>CountryOfOrigin</label>
+        <input type="text" value.bind="applicantData.countryOfOrigin"  
+        blur.trigger="getCountry(applicantData.countryOfOrigin)" required>
+      </li>
+      <li class="list-group-item"><label class="mr-3">EMailAddress</label>
+        <input type="text" class="ml-1" value.bind="applicantData.eMailAddress" required>
+      </li>
+      <li class="list-group-item"><label class="mr-5">Age</label>
+        <input type="text" class="ml-5" value.bind="applicantData.age" required>
+      </li>
+      <li class="list-group-item"><label class="mr-5">Hired</label>
+        <input type="checkbox" class="ml-5" checked.bind="applicantData.hired">
+      </li>
+    </ul>
+<div class="card-footer text-center">
+  <a class="btn btn-primary m-1" click.trigger="ManageApplicant(applicantData)">Save</a>
+  <a class="btn btn-primary m-1" click.trigger="Reset()">Reset</a>
+  <a class="btn btn-primary m-1" click.trigger="DisplayTab('List')">Close</a>
+</div>
+</div>
+</form>
+</div>
+
+
+</template>

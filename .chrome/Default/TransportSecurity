@@ -1,0 +1,20 @@
+{
+   "3ojmKpEIJr+qiOhvR268AvTJRqoky/nVBeFc2DcJD1U=": {
+      "expect_ct": {
+         "expect_ct_enforce": false,
+         "expect_ct_expiry": 1591241706.13643,
+         "expect_ct_observed": 1590636906.13643,
+         "expect_ct_report_uri": "https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      },
+      "expiry": 0.0,
+      "mode": "default",
+      "sts_include_subdomains": false,
+      "sts_observed": 0.0
+   },
+   "8/RrMmQlCD2Gsp14wUCE1P8r7B2C5+yE0+g79IPyRsc=": {
+      "expiry": 1622191048.411843,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1590655048.41185
+   }
+}

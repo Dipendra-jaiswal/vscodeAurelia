@@ -1,0 +1,6 @@
+2020/05/28-13:25:23.086 3860 Reusing MANIFEST E:\Aurelia\aurelia-app\.chrome\Default\Local Storage\leveldb/MANIFEST-000001
+2020/05/28-13:25:23.086 3860 Recovering log #3
+2020/05/28-13:25:23.087 3860 Reusing old log E:\Aurelia\aurelia-app\.chrome\Default\Local Storage\leveldb/000003.log 
+2020/05/28-13:25:39.498 5358 Level-0 table #5: started
+2020/05/28-13:25:39.544 5358 Level-0 table #5: 7666 bytes OK
+2020/05/28-13:25:39.596 5358 Delete type=0 #3
